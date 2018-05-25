@@ -193,7 +193,6 @@
       color #888
   .new-content-wrapper
     width 100%
-    height 95
     top 40px
     bottom 0
     position absolute
