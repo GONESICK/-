@@ -14,12 +14,9 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const data = require('../data.json')
-const bottom = data.bottom
-const list = data.list
-const focus = data.focus
-const live = data.live
-const banner = data.banner
-const news = data.news
+const all = data.all
+const result = data.result
+const read = data.read
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -31,42 +28,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // these devServer options should be customized in /config/index.js
   devServer: {
     before(app) {
-      app.get('/api/news', function (req, res) {
+      app.get('/api/all', function (req, res) {
         res.json({
           error: 0,
-          data: news
+          data: all
         })
-      })
-      app.get('/api/bottom', function (req, res) {
+      }),
+      app.get('/api/result', function (req, res) {
         res.json({
           error: 0,
-          data: bottom
+          data: result
         })
-      })
-      app.get('/api/list', function (req, res) {
-        res.json({
-          error: 0,
-          data: list
+      }),
+        app.get('/api/read', function (req, res) {
+          res.json({
+            error: 0,
+            data: read
+          })
         })
-      })
-      app.get('/api/focus', function (req, res) {
-        res.json({
-          error: 0,
-          data: focus
-        })
-      })
-      app.get('/api/live', function (req, res) {
-        res.json({
-          error: 0,
-          data: live
-        })
-      })
-      app.get('/api/banner', function (req, res) {
-        res.json({
-          error: 0,
-          data: banner
-        })
-      })
     },
     clientLogLevel: 'warning',
     historyApiFallback: {

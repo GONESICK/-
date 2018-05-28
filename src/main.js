@@ -6,7 +6,11 @@ import router from './router'
 import axios from 'axios'
 import './common/stylus/index.styl'
 import VueScroller from 'vue-scroller'
+import VideoPlayer from 'vue-video-player'
+require('video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
 
+Vue.use(VideoPlayer)
 Vue.use(VueScroller)
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
@@ -18,4 +22,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-router.push('./provide')
+router.push('./Face')

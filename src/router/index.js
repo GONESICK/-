@@ -1,51 +1,47 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import provide from '../components/provide.vue'
-import news from '../components/news.vue'
-import country from '../components/country.vue'
-import fina from '../components/fina.vue'
-import fun from '../components/fun.vue'
-import healthy from '../components/healthy.vue'
-import soid from '../components/soid.vue'
+import Face from '../components/Facecontent'
+import Book from '../components/book'
+import Read from '../components/read'
+import Detail from '../components/lessondetail'
+import lesson from '../components/lesson'
+import course from '../components/course'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/provide',
-      name: 'provide',
-      component: provide
+      path: '/Face',
+      name: 'Face',
+      component: Face,
+      children: [
+        {
+          path: '/Detail',
+          name: 'Detail',
+          component: Detail
+        },
+        {
+          path: '/lesson',
+          name: 'lesson',
+          component: lesson
+        },
+        {
+          path: '/course',
+          name: 'course',
+          component: course
+        }
+      ]
     },
     {
-      path: '/news',
-      name: 'news',
-      component: news
+      path: '/Book',
+      name: 'Book',
+      component: Book
     },
     {
-      path: '/fun',
-      name: 'fun',
-      component: fun
-    },
-    {
-      path: '/healthy',
-      name: 'healthy',
-      component: healthy
-    },
-    {
-      path: '/country',
-      name: 'country',
-      component: country
-    },
-    {
-      path: '/soid',
-      name: 'soid',
-      component: soid
-    },
-    {
-    path: '/fina',
-    name: 'fina',
-    component: fina
-}
+      path: '/Read',
+      name: 'Read',
+      component: Read
+    }
   ]
 })
